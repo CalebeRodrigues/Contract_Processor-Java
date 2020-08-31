@@ -1,20 +1,17 @@
 package model.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Contract {
 	
 	private Integer number;
 	private Double contractValue;
 	private int numberInstallment;
 	
-	private List<Installment> installment = new ArrayList<>();
+	private Installment installment;
 
 	public Contract(Integer number, Double contractValue, int numberInstallment, Installment installment) {
 		this.number = number;
 		this.contractValue = contractValue;
-		this.installment.add(installment);
+		this.installment = installment;
 	}
 
 	public Integer getNumber() {
@@ -41,27 +38,12 @@ public class Contract {
 		this.numberInstallment = numberInstallment;
 	}
 
-	public List<Installment> getInstallment() {
+	public Installment getInstallment() {
 		return installment;
-	}
-
-	public void addInstallment(Installment installment) {
-		this.installment.add(installment);
-	}
-	
-	public void removeInstallment(Installment installment) {
-		this.installment.remove(installment);
 	}
 
 	@Override
 	public String toString() {
-		
-		StringBuilder report = null;
-		
-		for (Installment x : installment) {
-			report.append(x.toString());
-		}
-		
-		return report.toString();
+		return installment.toString();
 	}
 }
